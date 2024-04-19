@@ -1,3 +1,8 @@
+
+```bash 
+conda create -n flexible  python=3.10
+```
+
 # Official repository for [Flexible Diffusion Modeling of Long Videos](https://arxiv.org/abs/2205.11495)
 
 ![A 30 second clip from a video sampled on CARLA Town01.](https://www.cs.ubc.ca/~wsgh/fdm/video_arrays/carla-part-of-long-sample.gif)
