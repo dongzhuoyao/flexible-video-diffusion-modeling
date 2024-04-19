@@ -2,6 +2,8 @@
 ```bash 
 conda create -n flexible  python=3.10
 pip install tensorflow==2.8 tensorflow_hub==0.12.0
+conda install protobuf=3.20    
+pip install tensorflow_datasets
 ```
 
 # Official repository for [Flexible Diffusion Modeling of Long Videos](https://arxiv.org/abs/2205.11495)
