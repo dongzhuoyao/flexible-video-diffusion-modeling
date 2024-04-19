@@ -1,4 +1,5 @@
 """gqn_mazes dataset."""
+
 """This implementation is based on https://github.com/saeidnp/cwvae/blob/master/datasets/gqn_mazes/gqn_mazes.py and
    https://github.com/iShohei220/torch-gqn/blob/c0156c72f4e63ca6523ab8d9a6f6b3ce9e0e391d/dataset/convert2torch.py"""
 
@@ -6,6 +7,7 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 
 import numpy as np
+import os
 
 from pathlib import Path
 
@@ -93,13 +95,14 @@ def _process_seq(seq):
     seq = tf.cast(seq, tf.float32) / 255.0
     return seq
 
+
 if __name__ == "__main__":
     data_dir = Path(os.path.dirname(os.path.abspath(__file__)))
-    orig_dataset = 'gqn_mazes'
-    torch_dataset_path = data_dir / f'{orig_dataset}-torch'
+    orig_dataset = "gqn_mazes"
+    torch_dataset_path = data_dir / f"{orig_dataset}-torch"
     torch_dataset_path.mkdir(exist_ok=True)
 
-    for split in ['train', 'test']:
+    for split in ["train", "test"]:
         torch_split_path = torch_dataset_path / split
         torch_split_path.mkdir(exist_ok=True)
 
@@ -108,4 +111,4 @@ if __name__ == "__main__":
             video = item["video"].numpy()
             np.save(torch_split_path / f"{cnt}.npy", video)
 
-        print(f' [-] {cnt} scenes in the {split} dataset')
+        print(f" [-] {cnt} scenes in the {split} dataset")
